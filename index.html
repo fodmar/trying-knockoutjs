@@ -3,8 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <script type="text/javascript" src="lib/knockout-min.js"></script>
 </head>
 <body>
-
+    <h2>Exchange rates</h2>
+    <div data-bind="foreach: exchangeRates">
+        <div>
+            From: <span data-bind="text: from"></span>
+            To: <span data-bind="text: to"></span>
+            Rate: <span data-bind="text: rate"></span>
+        </div>
+    </div>
+    
+    <script src='lib/require.js'></script>
+    <script>
+        require(['js/require.config.js'], function () {{
+            require(['js/main.js'], function (main) {{
+                main.init();
+            }});
+        }});
+    </script>
 </body>
