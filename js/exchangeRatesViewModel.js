@@ -1,9 +1,7 @@
-define(["ko", "js/ExchangeRate"], function (ko, ExchangeRate) {
+define(["ko"], function (ko) {
     
-    function ExchageRatesViewModel() {
-        this.exchangeRates = ko.observableArray([
-            new ExchangeRate("EURO", "PLN", 3.13)
-        ]);
+    function ExchageRatesViewModel(exchangeRates) {
+        this.exchangeRates = ko.observableArray(exchangeRates);
     }
     
     return ExchageRatesViewModel;
