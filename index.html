@@ -6,11 +6,25 @@
 </head>
 <body>
     <h2>Exchange rates</h2>
+    
+    <div data-bind="with: addHandler">
+        <button data-bind="click: add, visible: !addMode()">Add</button>
+        <div data-bind="visible: addMode">
+            <div data-bind="with: newExchangeRate">
+                <div>From: <input data-bind="value: from" /></div>
+                <div>To: <input data-bind="value: to" /></div>
+                <div>Rate: <input data-bind="value: rate" /></div>
+            </div>
+            <button data-bind="click: save">Save</button>
+            <button data-bind="click: cancel">Cancel</button>
+        </div>
+    </div>
+    
     <div data-bind="foreach: exchangeRates">
         <div>
-            From: <span data-bind="text: from"></span>
-            To: <span data-bind="text: to"></span>
-            Rate: <span data-bind="text: rate"></span>
+            <div>From: <span data-bind="text: from"></span></div>
+            <div>To: <span data-bind="text: to"></span></div>
+            <div>Rate: <span data-bind="text: rate"></span></div>
         </div>
     </div>
     
