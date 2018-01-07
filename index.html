@@ -12,18 +12,26 @@
     <div class="w3-row w3-margin-left w3-margin-right">
         <div class="w3-col m4 l3 w3-section" data-bind="with: addHandler">
             <button class="w3-button w3-blue-grey" data-bind="click: add, visible: !addMode()">Add</button>
-            <form data-bind="visible: addMode">
+            <form class="w3-card w3-container" data-bind="visible: addMode">
                 <div data-bind="with: newExchangeRate">
-                    <p><label>From</label>
-                    <input class="w3-input w3-border" data-bind="value: from" type="text"></p>
-                    <p><label>To</label>
-                    <input class="w3-input w3-border" data-bind="value: to" type="text"></p>
-                    <p><label>Rate</label>
-                    <input class="w3-input w3-border" data-bind="value: rate" type="text"></p>
+                    <div>
+                        <label>From</label>
+                        <input class="w3-input w3-border" data-bind="value: from" type="text">
+                    </div>
+                    <div>
+                        <label>To</label>
+                        <input class="w3-input w3-border" data-bind="value: to" type="text">
+                    </div>
+                    <div>
+                        <label>Rate</label>
+                        <input class="w3-input w3-border" data-bind="value: rate" type="text">
+                    </div>
                 </div>
                 
-                <button class="w3-button w3-blue-grey" data-bind="click: save">Save</button>
-                <button class="w3-button w3-blue-grey" data-bind="click: cancel">Cancel</button>
+                <div class="w3-section">
+                    <button class="w3-button w3-blue-grey" data-bind="click: save">Save</button>
+                    <button class="w3-button w3-blue-grey" data-bind="click: cancel">Cancel</button>
+                </div>
             </form>
         </div>
         
