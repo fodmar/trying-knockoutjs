@@ -1,7 +1,7 @@
-define(["ko", "js/exchangeRate"], function (ko, ExchangeRate) {
+define(["ko", "js/exchangeRateViewModel"], function (ko, ExchangeRateViewModel) {
     
     function AddExchangeRateHandler(saveCallback) {
-        this.newExchangeRate = ko.observable(new ExchangeRate());
+        this.newExchangeRate = ko.observable(new ExchangeRateViewModel());
         this.addMode = ko.observable(false);
         
         this.add = function () {
@@ -9,12 +9,17 @@ define(["ko", "js/exchangeRate"], function (ko, ExchangeRate) {
         };
         
         this.save = function () {
-            saveCallback(this.newExchangeRate());
+            saveCallback({
+                from: this.newExchangeRate().from(),
+                to: this.newExchangeRate().to(),
+                rate: this.newExchangeRate().rate(),
+            });
+            
             this.cancel();
         };
         
         this.cancel = function () {
-            this.newExchangeRate(new ExchangeRate());
+            this.newExchangeRate(new ExchangeRateViewModel());
             this.addMode(false);
         };
     };

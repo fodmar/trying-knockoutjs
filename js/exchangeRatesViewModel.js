@@ -1,10 +1,26 @@
-define(["ko", "js/addExchangeRateHandler"], function (ko, AddExchangeRateHandler) {
+define(["ko", "js/exchangeRateViewModel", "js/addExchangeRateHandler"], function (ko, ExchangeRateViewModel, AddExchangeRateHandler) {
     
     function ExchageRatesViewModel(exchangeRates) {
-        this.exchangeRates = ko.observableArray(exchangeRates);
+        this.create = function (e) {
+            return new ExchangeRateViewModel(e.from, e.to, e.rate, this.edit.bind(this), this.destroy.bind(this));
+        };
         
-        var saveCallback = this.exchangeRates.push.bind(this.exchangeRates);
-        this.addHandler = ko.observable(new AddExchangeRateHandler(saveCallback));
+        this.save = function (e) {
+            // this would call server
+            this.exchangeRates.push(this.create(e));
+        };
+        
+        this.edit = function () {
+             // this would call server
+        };
+        
+        this.destroy = function (e) {
+            // this would call server
+            this.exchangeRates.remove(e);
+        };
+        
+        this.exchangeRates = ko.observableArray(exchangeRates.map(this.create.bind(this)));
+        this.addHandler = ko.observable(new AddExchangeRateHandler(this.save.bind(this)));
     }
     
     return ExchageRatesViewModel;

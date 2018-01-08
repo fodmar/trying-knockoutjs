@@ -9,9 +9,11 @@
     <div class="w3-container w3-dark-grey">
         <h2>Exchange rates</h2>
     </div>
+    
     <div class="w3-row w3-margin-left w3-margin-right">
         <div class="w3-col m4 l3 w3-section" data-bind="with: addHandler">
             <button class="w3-button w3-blue-grey" data-bind="click: add, visible: !addMode()">Add</button>
+            
             <form class="w3-card w3-container" data-bind="visible: addMode">
                 <div data-bind="with: newExchangeRate">
                     <div>
@@ -38,11 +40,21 @@
         <div class="w3-row">
             <div class="w3-col m4 l3">
                 <ul class="w3-ul w3-border" data-bind="foreach: exchangeRates">
-                    <li>
+                    <li data-bind="visible: !editMode()">
                         <span data-bind="text: from"></span>
                         <span>&rarr;</span>
                         <span data-bind="text: to"></span>
                         <span data-bind="text: rate"></span>
+                        <button data-bind="click: edit">Edit</button>
+                        <button data-bind="click: destroy">Delete</button>
+                    </li>
+                    <li data-bind="visible: editMode">
+                        <input data-bind="value: editCopy().from"></span>
+                        <span>&rarr;</span>
+                        <input data-bind="value: editCopy().to"></span>
+                        <input data-bind="value: editCopy().rate"></span>
+                        <button data-bind="click: cancel">Cancel</button>
+                        <button data-bind="click: save">Save</button>
                     </li>
                 </ul>
             </div>
