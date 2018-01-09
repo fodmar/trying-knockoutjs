@@ -1,0 +1,12 @@
+table.w3-centered td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+table.w3-centered input {
+    text-align: center;
+}
+
+.w3-input {
+    padding: 4px;
+}
