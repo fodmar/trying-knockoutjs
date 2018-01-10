@@ -5,6 +5,10 @@ define(["ko"], function (ko) {
         this.to = ko.observable(to);
         this.rate = ko.observable(rate);
         
+        this.display = ko.computed(function () {
+            return this.from() + " -> " + this.to();
+        }, this);
+        
         this.editMode = ko.observable(false);
         this.editCopy = ko.observable({
             from: ko.observable(from),
