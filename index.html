@@ -12,6 +12,9 @@
     </div>
     
     <div class="w3-row w3-margin">
+        <div class="w3-margin-bottom" data-bind="with: addHandler">
+            <button class="w3-button w3-blue-grey" data-bind="click: add, enable: !addMode()">Add new</button>
+        </div>
         <table class="w3-col m6 l5 w3-table-all w3-centered w3-margin-right">
             <thead>
                 <tr class="w3-light-grey">
@@ -22,6 +25,18 @@
                     <th style="width: 33%">Commands</th>
                 </tr>
             </thead>
+            <tbody data-bind="with: addHandler">
+                <tr class="w3-pale-yellow" data-bind="visible: addMode, with: newExchangeRate">
+                    <td><input class="w3-input w3-border" data-bind="value: from" type="text"></td>
+                    <td><span>&rarr;</td>
+                    <td><input class="w3-input w3-border" data-bind="value: to" type="text"></td>
+                    <td><input class="w3-input w3-border" data-bind="value: rate" type="text"></td>
+                    <td>
+                        <button class="w3-button w3-blue-grey" data-bind="click: $parent.save.bind($parent)">Save</button>
+                        <button class="w3-button w3-blue-grey" data-bind="click: $parent.cancel.bind($parent)">Cancel</button>
+                    </td>
+                </tr>
+            </tbody>
             <tbody data-bind="foreach: exchangeRates">
                 <tr data-bind="visible: !editMode()">
                     <td data-bind="text: from"></td>
@@ -68,33 +83,6 @@
                     <span data-bind="text: toText"></span>
                     <input class="w3-input w3-border" data-bind="value: toValue, enable: enabled" type="text">
                 </div>
-            </div>
-        
-            <div data-bind="with: addHandler">
-                <button class="w3-button w3-blue-grey" data-bind="click: add, visible: !addMode()">Add</button>
-                
-                <form class="w3-card w3-container" data-bind="visible: addMode">
-                    <div data-bind="with: newExchangeRate">
-                        <h3>New exchange rate</h3>
-                        <div>
-                            <label>From</label>
-                            <input class="w3-input w3-border" data-bind="value: from" type="text">
-                        </div>
-                        <div>
-                            <label>To</label>
-                            <input class="w3-input w3-border" data-bind="value: to" type="text">
-                        </div>
-                        <div>
-                            <label>Rate</label>
-                            <input class="w3-input w3-border" data-bind="value: rate" type="text">
-                        </div>
-                    </div>
-                    
-                    <div class="w3-section">
-                        <button class="w3-button w3-blue-grey" data-bind="click: save">Save</button>
-                        <button class="w3-button w3-blue-grey" data-bind="click: cancel">Cancel</button>
-                    </div>
-                </form>
             </div>
             
         </div>
