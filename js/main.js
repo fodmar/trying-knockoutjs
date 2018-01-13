@@ -1,4 +1,4 @@
-define(["ko", "js/exchangeRatesViewModel"], function (ko, ExchageRatesViewModel) {
+define(["ko", "js/appViewModel"], function (ko, AppViewModel) {
     return {
         init: function () {
             // this would come from server
@@ -6,7 +6,7 @@ define(["ko", "js/exchangeRatesViewModel"], function (ko, ExchageRatesViewModel)
                 { from: "EURO", to: "PLN", rate: 3.13 }
             ];
             
-            ko.applyBindings(new ExchageRatesViewModel(exchangeRates));
+            ko.applyBindings(new AppViewModel(exchangeRates));
         }
     };
 });
