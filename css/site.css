@@ -10,3 +10,16 @@ table.w3-centered input {
 .w3-input {
     padding: 4px;
 }
+
+.table {
+    display: table;
+    width: 100%;
+}
+
+.table-row {
+    display: table-row;
+}
+
+.table-cell {
+    display: table-cell;
+}

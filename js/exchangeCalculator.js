@@ -27,11 +27,11 @@ define(["ko"], function (ko) {
         });
         
         this.fromText = ko.computed(function () {
-            return this.selectedExchangeRate() ? this.selectedExchangeRate().from() : "From";
+            return this.selectedExchangeRate() ? this.selectedExchangeRate().from() : "";
         }, this);
         
         this.toText = ko.computed(function () {
-            return this.selectedExchangeRate() ? this.selectedExchangeRate().to() : "To";
+            return this.selectedExchangeRate() ? this.selectedExchangeRate().to() : "";
         }, this);
     };
     

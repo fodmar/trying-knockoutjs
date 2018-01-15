@@ -1,4 +1,4 @@
-define(["ko", "js/exchangeRatesViewModel"], function (ko, ExchangeRatesViewModel) {
+define(["ko", "js/exchangeRatesViewModel", "js/probabilityCalculator"], function (ko, ExchangeRatesViewModel, ProbabilityCalculator) {
     
     function AppViewModel(exchangeRates) {
         this.exchangeRatesViewModel = ko.observable(new ExchangeRatesViewModel(exchangeRates));

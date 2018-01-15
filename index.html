@@ -79,14 +79,18 @@
                         </select>
                     </div>
                     
-                    <div>
-                        <span data-bind="text: fromText"></span>
-                        <input class="w3-input w3-border" data-bind="value: fromValue, enable: enabled" type="text">
-                    </div>
-                    
-                    <div class="w3-margin-bottom">
-                        <span data-bind="text: toText"></span>
-                        <input class="w3-input w3-border" data-bind="value: toValue, enable: enabled" type="text">
+                    <div class="table w3-section">
+                        <div class="table-row">
+                            <input class="table-cell w3-input w3-border" data-bind="value: fromValue, enable: enabled" type="text">
+                            <span class="table-cell" data-bind="text: fromText, togglePaddingLeft: fromText().length > 0"></span>
+                        </div>
+                        
+                        <div style="margin-top: 8px"></div>
+                        
+                        <div class="w3-margin-bottom table-row">
+                            <input class="table-cell w3-input w3-border" data-bind="value: toValue, enable: enabled" type="text">
+                            <span class="table-cell" data-bind="text: toText, togglePaddingLeft: toText().length > 0"></span>
+                        </div>
                     </div>
                 </div>
                 
