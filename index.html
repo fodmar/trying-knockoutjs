@@ -87,7 +87,7 @@
                         
                         <div style="margin-top: 8px"></div>
                         
-                        <div class="w3-margin-bottom table-row">
+                        <div class="table-row">
                             <input class="table-cell w3-input w3-border" data-bind="value: toValue, enable: enabled" type="text">
                             <span class="table-cell" data-bind="text: toText, togglePaddingLeft: toText().length > 0"></span>
                         </div>
@@ -98,7 +98,33 @@
         </div>
     </div>
     
-    <div id="probabilityCalculator" class="tab" style="display: none;">
+    <div id="probabilityCalculator" class="tab" data-bind="with: probabilityCalculator" style="display: none;">
+        <div class="w3-row w3-margin">
+            <div class="w3-col m4 l3">
+                <div class="w3-card w3-container w3-margin-bottom">
+                    <h3>Define matrix</h3>
+                    <div class="table w3-section">
+                        <div>New question</div>
+                        <div class="table-row">
+                            <input class="w3-input w3-border table-cell" data-bind="value: newQuestion" />
+                            <span class="table-cell padding-left">
+                                <button class="w3-button w3-blue-grey" data-bind="click: addQuestion">Add</button>
+                            </span>
+                        </div>
+                        
+                        <div style="margin-top: 8px"></div>
+                        
+                        <div>New answer</div>
+                        <div class="table-row">
+                            <input class="w3-input w3-border table-cell" data-bind="value: newAnswer" />
+                            <span class="table-cell padding-left">
+                                <button class="w3-button w3-blue-grey" data-bind="click: addAnswer">Add</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
     <script src='lib/require.js'></script>
