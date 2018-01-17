@@ -16,11 +16,11 @@
     </div> 
     
     <div id="exchangeRates" class="tab" data-bind="with: exchangeRatesViewModel">
-        <div class="w3-row w3-margin">
+        <div class="w3-row-padding w3-margin">
             <div class="w3-margin-bottom" data-bind="with: addHandler">
                 <button class="w3-button w3-blue-grey" data-bind="click: add, enable: !addMode()">Add new</button>
             </div>
-            <table class="w3-col m6 l5 w3-table-all w3-centered w3-margin-right">
+            <table class="w3-col m6 l5 w3-table-all w3-centered">
                 <thead>
                     <tr class="w3-light-grey">
                         <th style="width: 20%">From</th>
@@ -67,7 +67,7 @@
             </table>
             
             <div class="w3-col m4 l3">
-                <div class="w3-card w3-container w3-margin-bottom" data-bind="with: exchangeCalculator">
+                <div class="w3-card w3-container" data-bind="with: exchangeCalculator">
                     <h3>Calculate</h3>
                     <div>
                         <label>Exchange rate</label>
@@ -99,21 +99,11 @@
     </div>
     
     <div id="probabilityCalculator" class="tab" data-bind="with: probabilityCalculator" style="display: none;">
-        <div class="w3-row w3-margin">
+        <div class="w3-row-padding w3-margin">
             <div class="w3-col m4 l3">
                 <div class="w3-card w3-container w3-margin-bottom">
-                    <h3>Define matrix</h3>
+                    <h3>Define questionnaire</h3>
                     <div class="table w3-section">
-                        <div>New question</div>
-                        <div class="table-row">
-                            <input class="w3-input w3-border table-cell" data-bind="value: newQuestion" />
-                            <span class="table-cell padding-left">
-                                <button class="w3-button w3-blue-grey" data-bind="click: addQuestion">Add</button>
-                            </span>
-                        </div>
-                        
-                        <div style="margin-top: 8px"></div>
-                        
                         <div>New answer</div>
                         <div class="table-row">
                             <input class="w3-input w3-border table-cell" data-bind="value: newAnswer" />
@@ -121,7 +111,40 @@
                                 <button class="w3-button w3-blue-grey" data-bind="click: addAnswer">Add</button>
                             </span>
                         </div>
+                        
+                        <div style="margin-top: 8px"></div>
+                        
+                        <div>New question</div>
+                        <div class="table-row">
+                            <input class="w3-input w3-border table-cell" data-bind="value: newQuestion" />
+                            <span class="table-cell padding-left">
+                                <button class="w3-button w3-blue-grey" data-bind="click: addQuestion">Add</button>
+                            </span>
+                        </div>
                     </div>
+                </div>
+            </div>
+            <div class="w3-col m8 l7" style="display: red">
+                <div class="w3-card w3-container w3-margin-bottom">
+                    <h3>Questionnaire</h3>
+                    <table class="w3-table w3-border w3-bordered w3-centered w3-margin-bottom">
+                        <thead>
+                            <tr class="w3-light-grey" data-bind="foreach: answers">
+                                <!-- ko if: $index() === 0 -->
+                                  <th></th>
+                                <!-- /ko -->
+                                <th data-bind="text: $data"></th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: questions">
+                            <tr data-bind="foreach: $parent.answers">
+                                <!-- ko if: $index() === 0 -->
+                                  <td data-bind="text: $parent"></td>
+                                <!-- /ko -->
+                                <td><input type="checkbox" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

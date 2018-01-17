@@ -1,8 +1,8 @@
 define(["ko"], function (ko) {
    
-    function ProbabilityCalculator() {
-        this.answers = ko.observableArray();
-        this.questions = ko.observableArray();
+    function ProbabilityCalculator(questionnaire) {
+        this.answers = ko.observableArray(questionnaire.answers);
+        this.questions = ko.observableArray(questionnaire.questions);
         
         this.newAnswer = ko.observable();
         this.newQuestion = ko.observable();

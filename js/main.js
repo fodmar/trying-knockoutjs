@@ -16,7 +16,13 @@ define(["ko", "js/appViewModel"], function (ko, AppViewModel) {
                 { from: "EURO", to: "PLN", rate: 3.13 }
             ];
             
-            ko.applyBindings(new AppViewModel(exchangeRates));
+            // this would come from server
+            var questionnaire = {
+                questions: ["C#", "Java", "SQL"],
+                answers: ["Don't like", "Don't know", "Like"]
+            };
+            
+            ko.applyBindings(new AppViewModel(exchangeRates, questionnaire));
         }
     };
 });

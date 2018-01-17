@@ -1,8 +1,8 @@
 define(["ko", "js/exchangeRatesViewModel", "js/probabilityCalculator"], function (ko, ExchangeRatesViewModel, ProbabilityCalculator) {
     
-    function AppViewModel(exchangeRates) {
+    function AppViewModel(exchangeRates, questionnaire) {
         this.exchangeRatesViewModel = ko.observable(new ExchangeRatesViewModel(exchangeRates));
-        this.probabilityCalculator = ko.observable(new ProbabilityCalculator());
+        this.probabilityCalculator = ko.observable(new ProbabilityCalculator(questionnaire));
         
         this.currentTab = ko.observable("Exchange rates");
         
