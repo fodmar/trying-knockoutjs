@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
@@ -17,54 +18,61 @@
     
     <div id="exchangeRates" class="tab" data-bind="with: exchangeRatesViewModel">
         <div class="w3-row-padding w3-margin">
-            <div class="w3-margin-bottom" data-bind="with: addHandler">
-                <button class="w3-button w3-blue-grey" data-bind="click: add, enable: !addMode()">Add new</button>
+            <div class="w3-col m6 l5">
+                <div class="w3-card w3-container">
+                    <h3>Exchnge rates list</h3>
+                    <div class="w3-margin-top w3-margin-bottom" data-bind="with: addHandler">
+                        <button class="w3-button w3-blue-grey" data-bind="click: add, enable: !addMode()">Add new</button>
+                    </div>
+                    <table class="w3-table-all w3-centered w3-margin-bottom">
+                        <thead>
+                            <tr class="w3-light-grey">
+                                <th style="width: 26%">From</th>
+                                <th style="width: 9%"></th>
+                                <th style="width: 26%">To</th>
+                                <th style="width: 26%">Ratio</th>
+                                <th style="width: 13%"></th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="with: addHandler">
+                            <tr class="w3-pale-yellow" data-bind="visible: addMode, with: newExchangeRate">
+                                <td><input class="w3-input w3-border" data-bind="value: from" type="text"></td>
+                                <td><span>&rarr;</td>
+                                <td><input class="w3-input w3-border" data-bind="value: to" type="text"></td>
+                                <td><input class="w3-input w3-border" data-bind="value: rate" type="text"></td>
+                                <td>
+                                    <i class="fa fa-floppy-o fa-lg" data-bind="click: $parent.save.bind($parent)"></i>
+                                    <i class="fa fa-times fa-lg" data-bind="click: $parent.cancel.bind($parent)"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody data-bind="foreach: exchangeRates">
+                            <tr data-bind="visible: !editMode()">
+                                <td data-bind="text: from"></td>
+                                <td>&rarr;</td>
+                                <td data-bind="text: to"></td>
+                                <td data-bind="text: rate"></td>
+                                <td>
+                                    <div class="commands">
+                                        <i class="fa fa-pencil fa-lg" data-bind="click: edit"></i>
+                                        <i class="fa fa-trash fa-lg" data-bind="click: destroy"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr data-bind="visible: editMode">
+                                <td><input class="w3-input w3-border" data-bind="value: editCopy().from" /></td>
+                                <td><span>&rarr;</span></td>
+                                <td><input class="w3-input w3-border" data-bind="value: editCopy().to" /></td>
+                                <td><input class="w3-input w3-border" data-bind="value: editCopy().rate" /></td>
+                                <td>
+                                    <i class="fa fa-floppy-o fa-lg" data-bind="click: save"></i>
+                                    <i class="fa fa-times fa-lg" data-bind="click: cancel"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <table class="w3-col m6 l5 w3-table-all w3-centered">
-                <thead>
-                    <tr class="w3-light-grey">
-                        <th style="width: 20%">From</th>
-                        <th style="width: 7%"></th>
-                        <th style="width: 20%">To</th>
-                        <th style="width: 20%">Ratio</th>
-                        <th style="width: 33%">Commands</th>
-                    </tr>
-                </thead>
-                <tbody data-bind="with: addHandler">
-                    <tr class="w3-pale-yellow" data-bind="visible: addMode, with: newExchangeRate">
-                        <td><input class="w3-input w3-border" data-bind="value: from" type="text"></td>
-                        <td><span>&rarr;</td>
-                        <td><input class="w3-input w3-border" data-bind="value: to" type="text"></td>
-                        <td><input class="w3-input w3-border" data-bind="value: rate" type="text"></td>
-                        <td>
-                            <button class="w3-button w3-blue-grey" data-bind="click: $parent.save.bind($parent)">Save</button>
-                            <button class="w3-button w3-blue-grey" data-bind="click: $parent.cancel.bind($parent)">Cancel</button>
-                        </td>
-                    </tr>
-                </tbody>
-                <tbody data-bind="foreach: exchangeRates">
-                    <tr data-bind="visible: !editMode()">
-                        <td data-bind="text: from"></td>
-                        <td>&rarr;</td>
-                        <td data-bind="text: to"></td>
-                        <td data-bind="text: rate"></td>
-                        <td>
-                            <button class="w3-button w3-blue-grey" data-bind="click: edit">Edit</button>
-                            <button class="w3-button w3-blue-grey" data-bind="click: destroy">Delete</button>
-                        </td>
-                    </tr>
-                    <tr data-bind="visible: editMode">
-                        <td><input class="w3-input w3-border" data-bind="value: editCopy().from" /></td>
-                        <td><span>&rarr;</span></td>
-                        <td><input class="w3-input w3-border" data-bind="value: editCopy().to" /></td>
-                        <td><input class="w3-input w3-border" data-bind="value: editCopy().rate" /></td>
-                        <td>
-                            <button class="w3-button w3-blue-grey" data-bind="click: save">Save</button>
-                            <button class="w3-button w3-blue-grey" data-bind="click: cancel">Cancel</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
             
             <div class="w3-col m4 l3">
                 <div class="w3-card w3-container" data-bind="with: exchangeCalculator">
@@ -101,7 +109,7 @@
     <div id="probabilityCalculator" class="tab" data-bind="with: probabilityCalculator" style="display: none;">
         <div class="w3-row-padding w3-margin">
             <div class="w3-col m4 l3">
-                <div class="w3-card w3-container w3-margin-bottom">
+                <div class="w3-card w3-container">
                     <h3>Define questionnaire</h3>
                     <div class="table w3-section">
                         <div>New answer</div>
@@ -125,7 +133,7 @@
                 </div>
             </div>
             <div class="w3-col m8 l7" style="display: red">
-                <div class="w3-card w3-container w3-margin-bottom">
+                <div class="w3-card w3-container">
                     <h3>Questionnaire</h3>
                     <table class="w3-table w3-border w3-bordered w3-centered w3-margin-bottom">
                         <thead>

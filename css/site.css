@@ -33,3 +33,15 @@ table.w3-centered input {
 .padding-left {
     padding-left: 5px;
 }
+
+table tr .commands {
+    visibility: hidden;
+}
+
+table tr:hover .commands {
+    visibility: visible;
+}
+
+i.fa {
+    cursor: pointer;
+}
