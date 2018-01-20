@@ -41,8 +41,8 @@
                                 <td><input class="w3-input w3-border" data-bind="value: to" type="text"></td>
                                 <td><input class="w3-input w3-border" data-bind="value: rate" type="text"></td>
                                 <td>
-                                    <i class="fa fa-floppy-o fa-lg" data-bind="click: $parent.save.bind($parent)"></i>
-                                    <i class="fa fa-times fa-lg" data-bind="click: $parent.cancel.bind($parent)"></i>
+                                    <i class="fa fa-floppy-o fa-lg" title="Save" data-bind="click: $parent.save.bind($parent)"></i>
+                                    <i class="fa fa-times fa-lg" title="Cancel" data-bind="click: $parent.cancel.bind($parent)"></i>
                                 </td>
                             </tr>
                         </tbody>
@@ -54,8 +54,8 @@
                                 <td data-bind="text: rate"></td>
                                 <td>
                                     <div class="commands">
-                                        <i class="fa fa-pencil fa-lg" data-bind="click: edit"></i>
-                                        <i class="fa fa-trash fa-lg" data-bind="click: destroy"></i>
+                                        <i class="fa fa-pencil fa-lg" title="Edit" data-bind="click: edit"></i>
+                                        <i class="fa fa-trash fa-lg" title="Delete" data-bind="click: destroy"></i>
                                     </div>
                                 </td>
                             </tr>
@@ -65,8 +65,8 @@
                                 <td><input class="w3-input w3-border" data-bind="value: editCopy().to" /></td>
                                 <td><input class="w3-input w3-border" data-bind="value: editCopy().rate" /></td>
                                 <td>
-                                    <i class="fa fa-floppy-o fa-lg" data-bind="click: save"></i>
-                                    <i class="fa fa-times fa-lg" data-bind="click: cancel"></i>
+                                    <i class="fa fa-floppy-o fa-lg" title="Save" data-bind="click: save"></i>
+                                    <i class="fa fa-times fa-lg" title="Cancel" data-bind="click: cancel"></i>
                                 </td>
                             </tr>
                         </tbody>
