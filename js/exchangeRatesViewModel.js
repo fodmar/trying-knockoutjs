@@ -1,4 +1,4 @@
-define(["ko", "js/exchangeRateViewModel", "js/addExchangeRateHandler", "js/exchangeCalculator"], function (ko, ExchangeRateViewModel, AddExchangeRateHandler, ExchangeCalculator) {
+define(["ko", "exchangeRateViewModel", "addExchangeRateHandler", "exchangeCalculator"], function (ko, ExchangeRateViewModel, AddExchangeRateHandler, ExchangeCalculator) {
     
     function ExchageRatesViewModel(exchangeRates) {
         this.create = function (e) {

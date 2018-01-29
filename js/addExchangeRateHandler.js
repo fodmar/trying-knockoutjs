@@ -1,4 +1,4 @@
-define(["ko", "js/exchangeRateViewModel"], function (ko, ExchangeRateViewModel) {
+define(["ko", "exchangeRateViewModel"], function (ko, ExchangeRateViewModel) {
     
     function AddExchangeRateHandler(saveCallback) {
         this.newExchangeRate = ko.observable(new ExchangeRateViewModel());
