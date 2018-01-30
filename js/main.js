@@ -22,8 +22,16 @@ define(["ko", "appViewModel"], function (ko, AppViewModel) {
 
     // this would come from server
     var questionnaire = {
-        questions: ["C#", "Java", "SQL"],
-        answers: ["Don't like", "Don't know", "Like"]
+        questions: [
+            { id: 1, content: "C#", answerId: 0 },
+            { id: 2, content: "Java" , answerId: 0 }, 
+            { id: 3, content: "SQL", answerId: 0 }
+        ],
+        answers: [
+            { id: 1, content: "No" },
+            { id: 2, content: "Don't know" }, 
+            { id: 3, content: "Yes" }
+        ]
     };
 
     ko.applyBindings(new AppViewModel(exchangeRates, questionnaire));

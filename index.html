@@ -135,21 +135,21 @@
             <div class="w3-col m8 l7" style="display: red">
                 <div class="w3-card w3-container">
                     <h3>Questionnaire</h3>
-                    <table class="w3-table w3-border w3-bordered w3-centered w3-margin-bottom">
+                    <table class="w3-table w3-border w3-bordered w3-centered w3-margin-bottom fixed-table">
                         <thead>
                             <tr class="w3-light-grey" data-bind="foreach: answers">
                                 <!-- ko if: $index() === 0 -->
                                   <th></th>
                                 <!-- /ko -->
-                                <th data-bind="text: $data"></th>
+                                <th data-bind="text: $data.content"></th>
                             </tr>
                         </thead>
                         <tbody data-bind="foreach: questions">
                             <tr data-bind="foreach: $parent.answers">
                                 <!-- ko if: $index() === 0 -->
-                                  <td data-bind="text: $parent"></td>
+                                  <td data-bind="text: $parent.content"></td>
                                 <!-- /ko -->
-                                <td><input type="checkbox" /></td>
+                                <td><input type="radio" data-bind="value: id, checked: $parent.answerId" /></td>
                             </tr>
                         </tbody>
                     </table>

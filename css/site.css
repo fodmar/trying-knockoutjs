@@ -16,6 +16,10 @@ table.w3-centered input {
     width: 100%;
 }
 
+.fixed-table {
+    table-layout: fixed;
+}
+
 .table-row {
     display: table-row;
     white-space: nowrap;
