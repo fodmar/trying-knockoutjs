@@ -154,7 +154,7 @@
                                 <!-- ko if: $index() === 0 -->
                                   <td data-bind="text: $parent.content"></td>
                                 <!-- /ko -->
-                                <td><input type="radio" data-bind="value: id, checked: $parent.answerId" /></td>
+                                <td><input type="checkbox" data-bind="checkedValue: id, checked: $parent.selectedAnswers, click: $parent.setAnswerId.bind($parent)" /></td>
                             </tr>
                         </tbody>
                     </table>
