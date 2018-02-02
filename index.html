@@ -14,6 +14,7 @@
      <div class="w3-bar w3-black">
         <button class="w3-bar-item w3-button" data-open="exchangeRates" data-bind="click: openTab">Exchange rates</button>
         <button class="w3-bar-item w3-button" data-open="probabilityCalculator" data-bind="click: openTab">Probability calculator</button>
+        <button class="w3-bar-item w3-button" data-open="discountForm" data-bind="click: openTab">Discount form</button>
     </div> 
     
     <div id="exchangeRates" class="tab" data-bind="with: exchangeRatesViewModel">
@@ -161,6 +162,10 @@
                 </div>
             </div>
         </div>
+    </div>
+    
+    <div id="discountForm" class="tab" data-bind="with: discountFormViewModel" style="display: none;">
+    
     </div>
     
     <script data-main="js/main" src='https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js'></script>

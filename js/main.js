@@ -23,8 +23,8 @@ define(["ko", "appViewModel"], function (ko, AppViewModel) {
     // this would come from server
     var questionnaire = {
         questions: [
-            { id: 1, content: "C#", answerId: 0 },
-            { id: 2, content: "Java" , answerId: 0 }, 
+            { id: 1, content: "C#", answerId: 3 },
+            { id: 2, content: "Java" , answerId: 1 }, 
             { id: 3, content: "SQL", answerId: 0 }
         ],
         answers: [
@@ -34,5 +34,11 @@ define(["ko", "appViewModel"], function (ko, AppViewModel) {
         ]
     };
 
-    ko.applyBindings(new AppViewModel(exchangeRates, questionnaire));
+    // this would come from server
+    var discountRules = [
+        { from: 0, to: 10000, maxDiscount: 0.1 },
+        { from: 10001, to: 20000, maxDiscount: 0.2 }
+    ];
+    
+    ko.applyBindings(new AppViewModel(exchangeRates, questionnaire, discountRules));
 });
