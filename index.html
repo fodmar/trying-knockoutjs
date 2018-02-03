@@ -165,7 +165,31 @@
     </div>
     
     <div id="discountForm" class="tab" data-bind="with: discountFormViewModel" style="display: none;">
-    
+        <div class="w3-row-padding w3-margin">
+            <div class="w3-col m4 l3">
+                <div class="w3-card w3-container">
+                    <h3>Discount form</h3>
+                    <label>Original price</label>
+                    <input class="w3-input w3-border" type="text" />
+                    <div class="table" style="margin: 8px 0px;">
+                        <div class="table-row">
+                            <div class="table-cell" style="width: 70%;">
+                                <label class="table-cell">Discount amount</label>
+                                <input class="w3-input w3-border table-cell" type="text" />
+                            </div>
+                            <div class="table-cell">
+                                <div style="padding-left: 8px">
+                                    <label class="table-cell">Discount %</label>
+                                    <input class="w3-input w3-border table-cell" type="text" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <label>Sale price</label>
+                    <input class="w3-input w3-margin-bottom w3-border" type="text" />
+                </div>
+            </div>
+        </div>
     </div>
     
     <script data-main="js/main" src='https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js'></script>

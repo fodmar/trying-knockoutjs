@@ -30,6 +30,10 @@ table.w3-centered input {
     display: table-cell;
 }
 
+.table-column {
+    display: table-column;
+}
+
 .table-cell .w3-button {
     padding: 5px 16px;
 }
