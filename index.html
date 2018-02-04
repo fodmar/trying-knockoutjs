@@ -21,7 +21,7 @@
         <div class="w3-row-padding w3-margin">
             <div class="w3-col m6 l5">
                 <div class="w3-card w3-container">
-                    <h3>Exchnge rates list</h3>
+                    <h3>Exchange rates list</h3>
                     <div class="w3-margin-top w3-margin-bottom" data-bind="with: addHandler">
                         <button class="w3-button w3-blue-grey" data-bind="click: add, enable: !addMode()">Add new</button>
                     </div>
@@ -170,23 +170,23 @@
                 <div class="w3-card w3-container">
                     <h3>Discount form</h3>
                     <label>Original price</label>
-                    <input class="w3-input w3-border" type="text" />
+                    <input data-bind="value: originalPrice" class="w3-input w3-border" type="text" />
                     <div class="table" style="margin: 8px 0px;">
                         <div class="table-row">
                             <div class="table-cell" style="width: 70%;">
                                 <label class="table-cell">Discount amount</label>
-                                <input class="w3-input w3-border table-cell" type="text" />
+                                <input data-bind="value: discountAmount" class="w3-input w3-border table-cell" type="text" />
                             </div>
                             <div class="table-cell">
                                 <div style="padding-left: 8px">
                                     <label class="table-cell">Discount %</label>
-                                    <input class="w3-input w3-border table-cell" type="text" />
+                                    <input data-bind="value: discountPercentage" class="w3-input w3-border table-cell" type="text" />
                                 </div>
                             </div>
                         </div>
                     </div>
                     <label>Sale price</label>
-                    <input class="w3-input w3-margin-bottom w3-border" type="text" />
+                    <input data-bind="value: salePrice" class="w3-input w3-margin-bottom w3-border" type="text" />
                 </div>
             </div>
         </div>

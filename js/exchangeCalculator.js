@@ -16,8 +16,6 @@ define(["ko"], function (ko) {
                 if (this.selectedExchangeRate() && this.fromValue()) {
                     return this.selectedExchangeRate().rate() * this.fromValue();;
                 }
-
-                return undefined;
             },
             write: function (value) {
                 var from = this.selectedExchangeRate() ? 1.0 / this.selectedExchangeRate().rate() * value : undefined;
